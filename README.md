@@ -1,2 +1,2 @@
-#test repo
-**try to learning Git**
+#First repo 
+##learn git
