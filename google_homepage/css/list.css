@@ -1,0 +1,116 @@
+body {
+    height: 100%;
+    margin: 0px;
+    overflow: hidden;
+    color: rgba(0, 0, 0, 0.87);
+    font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+    text-size-adjust: 100%;
+    /* https://developer.mozilla.org/zh-CN/docs/Web/CSS/text-size-adjust */
+}
+
+.overthis {
+    display: block;
+    position: relative;
+    /* body的overflow是hidden，这里设置为绝对定位，是不占原文档流空间
+    设置为不同的overflow就可以再次出现滚动条，另一种就是外面再套盒子 */
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    box-shadow: 0 1px 2px 0 rgba(60,64,67,.30), 0 2px 6px 2px rgba(60,64,67,.15);
+    height: 100%;
+    overflow-x: hidden;
+    width: 100%;
+    padding-top: 0;
+}
+/* 还没研究伪元素和兼容性的问题 */
+.overthis::-webkit-scrollbar {
+    width: 16px;
+}
+.overthis::-webkit-scrollbar-thumb {
+    background: #dadce0;
+    background-clip: padding-box;
+    border: 4px solid transparent;
+    border-radius: 8px;
+    box-shadow: none;
+    min-height: 50px;
+}    
+
+.list {
+    display: flex;
+    margin: 0px;
+    padding: 17px 0 20px 12px;
+    width: 300px;
+    flex-wrap: wrap;
+}
+.item_list {
+    list-style-type: none;
+    width: 88px;
+    height: 100px;
+    padding: 0px 6px;
+    cursor: pointer;
+}
+.single_app {
+    display: inline-block;
+    width: 84px;
+    height: 84px;
+    margin: 8px 2px;
+    line-height: 0px;
+    text-align: center;
+}
+
+.single_app:hover {
+    background-color: #f6fafe;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    margin: 7px 1px;
+}
+
+.single_app:hover .app_intro {
+    white-space:normal;
+}
+
+.app_icon {
+    /* outline:1px red solid; */
+    display: inline-block;
+    width: 64px;
+    height: 64px;
+    background-image: url(../images/p1_6269e604.png);
+    background-size: 64px 2824px;
+}
+/* 与隐藏的文字比原版多，暂未解决 */
+.app_intro {
+    display: inline-block;
+    width: 76px;
+    line-height: 16px;
+    font-size: 14px;
+    letter-spacing: .09px;
+    font-family: 'Google Sans',Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.gg_more {
+    background-color: #fff;
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: #1a73e8;
+    display: inline-block;
+    font: 500 14px/16px 'Google Sans',Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+    margin: 16px 0 20px 0;
+    max-width: 265px;
+    outline: 0;
+    padding: 10px 24px;
+    text-align: center;
+    text-decoration: none;
+    white-space: normal;
+    width: auto;
+}
+
+.gg_more:hover {
+    background-color: #f8fbff;
+    border-color: #cce0fc;
+    cursor: pointer;
+}

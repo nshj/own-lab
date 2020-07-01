@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,
+        initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+        <title>Google</title>
+        <link rel="stylesheet" href="../css/gg_main.css">
+        <!-- 添加CSS外链 -->
+    </head>
+    <body>
+        <header>
+            <div class="hd_float hd_div_pst" 
+            title="Google账号: XXX &#13; XXXXX@gail.com" >
+
+                <img class="bd_radius" src="../images/IMG-1618.jpg" 
+                alt="avatar">
+
+            </div>
+            <!-- &#10; 和 &#13; 在title代表换行 -->
+
+            <div class="hd_float hd_div_pst" title="Google应用">
+                <a class="hd_app_bg" href="#">
+                            <!-- 小图标可以用CSS iconfont SVG解决
+                但google这里用的雪碧图 -->
+                    <!-- 标签a的透明度影响着iframe的背景透明度 -->
+                    <div class="app_list">
+                        <iframe src="./app_list.html" frameborder="0"
+                        style="height:100%; width:100%;"></iframe>
+                    </div>
+                </a>
+            </div>
+
+            <a class="hd_float hd_a_pst" href="https://www.google.com/imghp">图片</a>
+
+            <a class="hd_float hd_a_pst" href="#">Gmail</a>
+
+
+        </header>
+        <main style="margin-top: 43px;text-align: center;">
+            <!-- img 用margin:0 auto 这个不能居中？ -->
+            <img class="logo_pst" src="../images/logo.png" alt="Google" >
+            <form action="#">
+                <div class="main_s">
+                    <span class="search_icon">
+                        <svg focusable="false" xmlns="http://www.w3.org/2000/svg"viewBox="0 0 24 24">
+                            <path fill="#9AA0A6" d="M15.5 14h-.79l-.28-.27A6.471 
+                            6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 
+                            4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 
+                            14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z">
+                            </path>
+                        </svg> 
+                    </span>
+
+                    <input type="search" name="q" title="google 搜索"
+                    maxlength="2048" autocomplete="off" class="search_s_input">
+                    <!-- 谷歌这个还设了很多属性，需要查一查 -->
+                    <!-- 暂不会写搜索栏输入之后的变化，X叉号是 typy为search浏览器默认的 -->
+                    <span class="mic_icon"  role="button" aria-label="按语音搜索">
+                        <!-- 无障碍属性aria-label -->
+                        <svg focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="m12 15c1.66 0 3-1.31 3-2.97v-7.02c0-1.66-1.34-3.01-3-3.01s-3 
+                            1.34-3 3.01v7.02c0 1.66 1.34 2.97 3 2.97z" fill="#4285f4"></path>
+                            <path d="m11 18.08h2v3.92h-2z" fill="#34a853"></path>
+                            <path d="m7.05 16.87c-1.27-1.33-2.05-2.83-2.05-4.87h2c0 1.45 0.56 
+                            2.42 1.47 3.38v0.32l-1.15 1.18z" fill="#f4b400"></path>
+                            <path d="m12 16.93a4.97 5.25 0 0 1 -3.54 -1.55l-1.41 1.49c1.26 1.34 
+                            3.02 2.13 4.95 2.13 3.87 0 6.99-2.92 6.99-7h-1.99c0 2.92-2.24 4.93-5 4.93z" 
+                            fill="#ea4335"></path>
+                        </svg>
+                    </span>
+                </div>
+                <div class="button_pst"> 
+                    <input type="submit" name="btnK" value="Google 搜索">
+                    <input type="submit" name="btnI" value="&nbsp手气不错&nbsp">
+                <!-- <input type="button">在HTML5被 <button>元素取代 -->
+                </div>    
+            </form>
+        </main>
+        <footer>
+            <span style="margin-left: 7px;" >
+                <a href="#">广告</a>
+                <a href="#">商务</a>
+                <a href="#">Google 大全</a>
+                <a href="#">Google 搜索的运作方式</a>
+            </span>
+            <span style="float: right; margin-right: 30px;">
+                <a href="#">隐私权</a>
+                <a href="#">条款</a>
+                <a href="#">设置</a>
+            </span>
+        </footer>
+    </body>
+    </html>

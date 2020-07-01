@@ -1,0 +1,199 @@
+html body {
+    height: 100%;
+    margin: 16px 0 0;
+    font-family: Arial,sans-serif;
+    font-size: small;
+    background-color: #fff;
+    /* color: rgba(0, 0, 0, 0.87); */
+    /* body中的color 不控制<a>的color，默认<a>的样式就是不一样的 */
+}
+
+header {
+    display: block;
+    padding-right: 30px;
+    height: 30px;
+    overflow: visible;
+    /* 设置为hidden，图片尺寸大，会裁切 */
+}
+
+a  {
+    text-decoration-line: none;
+    /* 文本修饰线外观属性 */
+    color: rgba(0, 0, 0, 0.87);
+}
+
+footer a {
+    color:#5f6368;
+}
+
+a:hover, a:focus {
+    opacity: .85;
+    text-decoration: underline;
+}
+
+.hd_float {
+    float: right;
+    /* text-align: right; 
+    不控制块元素自己的对齐 ，只控制行内内容的对齐*/
+
+}
+
+.hd_a_pst {
+    display: inline-block;
+    line-height: 31px; 
+    /* ???不知道为什么改line-height的值才能和原版一样高 */
+    /* height: 24px; */
+    /* 实现垂直居中的办法之一，行高等于容器高 */
+    margin-left: 15px;
+}
+
+.hd_div_pst {
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    margin-left: 15px;
+}
+
+.bd_radius {
+    margin: -1px;
+    /* div是30*30，-1正好居中 */
+    border-radius: 50%;
+    /* 设置外框圆角 */
+
+}
+
+.bd_radius:hover {
+    box-shadow: 0 1px 0 rgba(0,0,0,.15);
+    /* https://developer.mozilla.org/zh-CN/docs/Web/CSS/box-shadow */
+    cursor: pointer;
+    /* https://developer.mozilla.org/zh-CN/docs/Web/CSS/cursor */
+}
+
+.hd_app_bg {
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    background: url(../images/1-1.png);
+    background-size: 528px 68px;
+    background-position: -132px -38px;
+    opacity: .55;
+    position: relative;
+    top: 0px;left: 0px;
+    /* ，当嵌套元素位置为absolute时，
+    以就近位置设为非默认static的元素为父元素，作定位原点 */
+    overflow: hidden;
+}
+.hd_app_bg:hover, .hd_app_bg:focus {
+    opacity: .85;
+}
+.hd_app_bg:focus {
+    overflow: visible;
+    opacity: 1;
+    /* 暂时不让iframe透明的办法，但图标也变不透明了 */
+}
+
+.app_list {
+    position: absolute;
+    top: 0px; right: -65px;
+    width: 340px; height: 468px;
+    margin: 40px 27px 0 0;
+}
+
+
+footer {
+    box-sizing:border-box;
+    width: 100%;
+    height: 41px;
+    /* 宽度为100%，content-box时，不包括padding，
+    也就是宽度会超出页面宽度，浮动块会在视窗外 */
+    background-color: #f2f2f2;
+    border-top: solid #e4e4e4 1px;
+    font-size: 14px;
+    line-height: 40px;
+    /* 为了与google页面保持高度一致，行高不同，
+    vertical-align默认的中线对齐位置就不一样，
+    这也是在header里a标签也调整行高 */
+    position: fixed;
+    bottom: 0px;
+}
+footer a {
+    padding-left: 23px;
+}
+
+.logo_pst {
+    height: 92px;
+    width: 272px;
+    padding-top: 109px;
+}
+
+.main_s {
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    background: #fff;
+    border: 1px solid #dfe1e5;
+    border-radius: 24px;
+    box-shadow: none;
+    height: 44px;
+    width: 482px;
+    margin: 0 auto;
+    line-height: 44px;
+    margin-top: 23.5px;
+}
+.main_s:hover {
+    box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
+    border-color: rgba(223, 225, 229, 0);
+}
+
+.search_s_input {
+    background-color: transparent;
+    border: none;
+    margin: 0px;
+    padding: 0px;
+    color: rgba(0,0,0,.87);
+    font: 16px arial,sans-serif;
+    width: 387px;
+    height: 34px;
+    line-height: 34px;
+    margin-left: 5px;
+    outline: none;
+}
+.search_icon {
+    height: 20px;
+    width: 20px;
+    margin-left: 14px;
+}
+span svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    /* 控制svg颜色属性 */
+}
+.mic_icon {
+    height: 24px;
+    width: 24px;
+    margin-right: 16px;
+}
+
+.button_pst
+{
+    margin-top: 18px;
+}
+
+.button_pst input {
+    background-color: #f2f2f2;
+    border: 1px solid #f2f2f2;
+    border-radius: 4px;
+    color: #5F6368;
+    font-family: arial,sans-serif;
+    font-size: 14px;
+    margin: 11px 4px;
+    padding: 0 16px;
+    line-height: 27px;
+    height: 36px;
+    min-width: 54px;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    /* https://developer.mozilla.org/zh-CN/docs/Web/CSS/user-select */
+}
