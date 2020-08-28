@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p>aaaa</p>
+  <div id="app">
+    <!-- 3、 使用组件 -->
+    <my-cpn></my-cpn>
+
+    <!-- 父子组件的使用 -->
+    <div>
+      <p>用组件标签，组件里面用了子组件</p>
+      <parent-cpn></parent-cpn>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    // 1、 创建组件
+    // const myComponent = Vue.extend({
+    //   // 注意 模板字符串 的用法 （ ` `里面换行 可以显示）
+    //   template:`
+    //     <div>
+    //       <h3> 我是一个组件</h3>
+    //       <p> 这都是组件里的内容</p>
+    //     </div>`
+    // })
+    // 2、 注册组件 并且定义组件标签的名称
+    // Vue.Component()创建的是全局，即多个Vue实例都可以用
+    // Vue.component('my-cpn', myComponent);
+
+    // const app = new Vue({
+    //   el: '#app',
+    //   data: {
+    //     message: 'Hello Vue!'
+    //   },
+    //   // 局部组件
+    //   components: {
+    //     'my-cpn': myComponent
+    //   }
+    // })
+    </script> 
+    <script>
+    // 父组件与子组件
+    const childComponent = Vue.extend({
+      template:`
+        <div>
+          <h3> 我是一个子组件</h3>
+          <p> 父组件在构建时components属性里面有我，就用我</p>
+        </div>`
+    })
+    const parentComponent = Vue.extend({
+      template:`
+        <div>
+          <h3> 我是一个父组件</h3>
+          <p> 这是父组件段落,下面我用子组件定义的标签</p>
+          <p> 这是父组件data：{{ msg }}</p>
+          <child-cpn></child-cpn>
+        </div>`,
+      data(){
+        return{
+          msg: '这是父组件'
+        }
+      },
+      components: {
+        'child-cpn' : childComponent
+      }
+    })
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: 'Hello Vue!'
+      },
+      components: {
+        'my-cpn': {
+          template:`
+            <div>
+              <h3> 我是一个组件</h3>
+              <p> 这是组件注册语法糖</p>
+            </div>`
+        },
+        'parent-cpn': parentComponent,
+      }
+    })
+    </script>
+    
+  <script type="text/x-template" id="aaa">
+    <!-- // 组件模板的两种分离方法 -->
+    <!-- 里面写 template属性的 值 即模板 -->
+    <div>
+      <p>模板第一种写法</p>
+    </div>
+
+  </script>
+
+  <template id="bbb">
+    <div>
+      <p>模板第二种写法</p>
+    </div>
+  </template>
+  <script>
+    // const app = new Vue({
+    //   el: '#app',
+    //   data: {
+    //     message: 'Hello Vue!'
+    //   },
+    //   components: {
+    //     'my-cpn': {
+    //       template: '#bbb'
+    //     },
+    //   }
+    // })
+  </script>
+</body>
+</html>

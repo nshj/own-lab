@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    {{ message }}
+    <cpn1 title="abc" @child=" message = $event"></cpn1>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <template id="cpn1">
+    <div>
+      <div>这是组件cpn1</div>
+      <div> {{ msg }} <p>静态通过props向子组件传数据title:</p>{{ title }}</div>
+      <button @click="$emit('child', '子组件消息')">传数据给父组件</button>
+  </div>
+  </template>
+  <script>
+    const cpn1 = {
+      template:'#cpn1',
+      props: ['title'],
+      data() {
+        return {
+          msg: '组件data的msg'
+        }
+      }
+    }
+    const app = new Vue({
+      el: '#app',
+      data : {
+        message: 'Hello Vue!'
+      },
+      components: {
+        'cpn1': cpn1
+      },
+      methods:{
+        onchild(e) {
+          console.log(e);
+        }
+      }
+    })
+  </script>
+</body>
+</html>
