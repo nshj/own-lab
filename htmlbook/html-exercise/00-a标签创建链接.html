@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>a标签创建链接</title> 
+</head>
+<body>
+	<p>
+		这是第一个链接指向本页面内<a href="#link-MDN" title="页内锚点">锚点</a>
+		<br>a标签的页内锚点href值用#开头+id
+	</p>
+	<br><br>
+	<p>
+		点击超链接时，可以在地址栏看到地址的变化情况
+	</p>
+	<br><br>
+	<p>
+		<a href="https://github.com/nshj" target="_blank">锚点</a>指向我的GitHub主页,target数值值为_blank,即新窗口打开
+	</p>
+	<br><br>
+	<p>
+		同样用a标签不同的target属性值链接到<a href="https://github.com/nshj">我的GitHub主页</a>，不用添加target属性值时默认是_self,即在当前窗口打开
+	</p>
+	<br><br>
+	<p>
+		a标签可以使用全局属性的title，作为提示信息展示给用户，在a标签上使用展现为 鼠标放到链接上会有一个提示效果，一般和链接标题一致。如<a href="#TOP" title="这是个超链接">这是个超链接</a> 
+		<br>除此之外，a标签的href属性值如果为空href=""或者href="#"再或者href="TOP"，点击它都会回到页面最顶端
+	</p>
+	<br><br>
+	<p>
+		a标签不至是指向其他页面链接或者页面内的某个位置，也可以是文件、电子邮件地址或者任何URL的超链接
+	</p>
+	<br><br>
+	<p>
+		更多关于a标签的信息，查看<a id="link-MDN" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a" target="_blank">MDN</a>上的内容
+		<br>页内锚点需要有该锚点的id或者name值（name在HTML5已废弃），使用全局属性id即可，比如我把这个MDN超链接的a标签id做了设置，id=“link-MDN”
+	</p>
+
+</body>
+</html>

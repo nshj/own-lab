@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <title>Movie Seat Booking</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+        <meta name="renderer" content="webkit">
+        <meta name="force-rendering" content="webkit">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="description" content="电影选座">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="movie-container">
+            <label>选择电影</label>
+            <select id="movie">
+                <option value="40">复仇者联盟4：终局之战 (￥40)</option>
+                <option value="42">小丑 (￥42)</option>
+                <option value="35">夺冠 (￥35)</option>
+                <option value="50">以家人之名 (￥50)</option>
+            </select>
+        </div>
+
+        <ul class="showcase">
+            <li>
+                <div class="seat"></div>
+                <small>可选</small>
+            </li>
+            <li>
+                <div class="seat selected"></div>
+                <small>已选</small>
+            </li>
+            <li>
+                <div class="seat occupied"></div>
+                <small>已售</small>
+            </li>
+        </ul>
+
+        <div class="container">
+            <div class="screen"></div>
+
+            <div class="row">
+                <div class="seat"></div>
+                <div class="seat"></div>
+                <div class="seat"></div>
+                <div class="seat"></div>
+                <div class="seat"></div>
+                <div class="seat"></div>
+                <div class="seat"></div>
+                <div class="seat"></div>
+            </div>
+            <div class="row">
+                <div class="seat"></div>
+                <div class="seat"></div>
+                <div class="seat"></div>
+                <div class="seat occupied"></div>
+                <div class="seat occupied"></div>
+                <div class="seat"></div>
+                <div class="seat"></div>
+                <div class="seat"></div>
+            </div>
+            <div class="row">
+                <div class="seat"></div>
+                <div class="seat"></div>
+                <div class="seat"></div>
+                <div class="seat"></div>
+                <div class="seat occupied"></div>
+                <div class="seat occupied"></div>
+                <div class="seat"></div>
+                <div class="seat"></div>
+            </div>
+            <div class="row">
+                <div class="seat"></div>
+                <div class="seat"></div>
+                <div class="seat"></div>
+                <div class="seat"></div>
+                <div class="seat"></div>
+                <div class="seat"></div>
+                <div class="seat"></div>
+                <div class="seat"></div>
+            </div>
+            <div class="row">
+                <div class="seat"></div>
+                <div class="seat"></div>
+                <div class="seat"></div>
+                <div class="seat occupied"></div>
+                <div class="seat occupied"></div>
+                <div class="seat"></div>
+                <div class="seat"></div>
+                <div class="seat"></div>
+            </div>
+            <div class="row">
+                <div class="seat"></div>
+                <div class="seat"></div>
+                <div class="seat occupied"></div>
+                <div class="seat occupied"></div>
+                <div class="seat"></div>
+                <div class="seat"></div>
+                <div class="seat"></div>
+                <div class="seat"></div>
+            </div>
+        </div>
+
+        <p class="text">
+            选中<span id="count">0</span>个座位，总价￥<span
+            id="total">0</span>
+        </p>
+
+        <script src="script.js"></script>
+    </body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>table 标签创建表格</title>
+</head>
+<body>
+	<p>基本的table表格如下所创建</p>
+	<table>
+		<caption>成绩单</caption>
+		<thead>
+			<tr>
+				<th>姓名</th>
+				<th>政治</th>
+				<th>语文</th>
+				<th>数学</th>
+				<th>外语</th>
+				<th>专业课</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>马大帅</td>
+				<td>60</td>
+				<td>80</td>
+				<td>70</td>
+				<td>88</td>
+				<td>99</td>
+			</tr>
+			<tr>
+				<td>王旺财</td>
+				<td>88</td>
+				<td>77</td>
+				<td>45</td>
+				<td>45</td>
+				<td>85</td>
+			</tr>
+			<tr>
+				<td>步知道</td>
+				<td>65</td>
+				<td>78</td>
+				<td>75</td>
+				<td>66</td>
+				<td>83</td>
+			</tr>
+		</tbody>
+	</table>
+	<p>
+		首先嵌套在table标签里面的最基础的是tr (a row of cells in a table )
+		代表每行数据,然后是 td (a cells of a table the contains data ) 
+		可以理解为表格里每个单元格里的数据都需要用这个标签圈起来;这样两个基本元素就组
+		成的表格,但是为了更好的区分清楚,表头和内容,用thead包裹表头的tr,用tbody包裹
+		内容的tr;除此之外,表头tr里面的每个单元格数据,都用th包裹表示.
+		<br>还有,可以在table里面添加标题(caption)
+		标签,注明标题.
+	</p>
+	<p>
+		更多table详情见总结笔记
+	</p>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title>Custom Video Player</title>
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="自定义播放器">
+    <link rel="stylesheet" href="./css/progress.css">
+    <link rel="stylesheet" href="./css/style.css">
+
+</head>
+<body>
+    <h1>你感兴趣的都在这里</h1>
+
+    <!-- 也可以使用video块内的 <source> 元素来指定需要嵌到页面的视频 -->
+    <!-- 其属性 加上controls 会出现视频控件 -->
+    <video
+        src="http://upos-sz-mirrorkodo.bilivideo.com/upgcxcode/66/02/3540266/3540266-1-208.mp4?e=ig8euxZM2rNcNbNVnWdVhwdlhbdHhwdVhoNvNC8BqJIzNbfq9rVEuxTEnE8L5F6VnEsSTx0vkX8fqJeYTj_lta53NCM=&uipk=5&nbs=1&deadline=1597469532&gen=playurl&os=kodobv&oi=837317101&trid=b1f102955c5e43e48cf700a264b456d5T&platform=html5&upsig=aaa9b59860b968fc12cd3d8bb22dcc11&uparams=e,uipk,nbs,deadline,gen,os,oi,trid,platform&mid=0&orderid=0,1&logo=80000000"
+        id="video"
+        class="screen"
+        poster="https://i2.hdslb.com/bfs/archive/be06808687a0eb892744bc7ec701372fab74357e.jpg"
+    ></video>
+    <div class="controls">
+        <button class="btn" id="play">
+            <i class="play-icon"></i>
+        </button>
+        <button class=" btn" id="stop">
+            <i class="stop-icon"></i>
+        </button>
+
+        <input 
+            type="range"
+            id="progress"
+            class="progress"
+            min="0"
+            max="100"
+            step="1"
+            value="0"
+        >
+        <span class="timestamp" id="timestamp">00:00/00:00</span>
+    </div>
+    
+    <script src="javascript.js"></script>
+</body>
+</html>

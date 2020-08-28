@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS and CSS Clock
+    </title>
+</head>
+<body>
+    <div class="clock">
+        <div class="clock-face">
+            <div class="hand hour-hand"></div>
+            <div class="hand min-hand"></div>
+            <div class="hand second-hand"></div>
+        </div>
+    </div>
+</body>
+
+<style>
+    html {
+        background-color: aquamarine;
+        font-family: 'helvetica neue';
+        font-size:10px;
+    }
+
+    body {
+        margin: 0;
+        font-size: 2rem;
+        /* flex: 1; === flex: 1 1 auto; */
+        /* flex-grow; flex-shrink; flex-basis */
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 1;
+
+    }
+
+    .clock {
+        width: 30rem;
+        height: 30rem;
+        border: 2rem solid white;
+        border-radius: 50%;
+        position: relative;
+        /* x偏移量 | y偏移量 | 阴影模糊半径 | 阴影颜色 */
+        /* 这么多？ */
+        box-shadow:
+        0 0 0 8px rgba(0,0,0,0.1),
+        inset 0 0 0 7px #EFEFEF,
+        inset 0 0 10px black,
+        0 0 10px rgba(0,0,0,0.2);
+    }
+
+    .clock-face {
+        width: 100%;
+        height: 100%;
+    }
+
+    .clock-face::after {
+        content: '';
+        display: block;
+        width: 1.5rem;
+        height: 1.5rem;
+        background-color: brown;
+        border-radius: 50%;
+        position: absolute;
+        /* top left 50% ，注意 原点是块的左上角在中心，无法达到正中心 */
+        top: 50%;
+        left: 50%;
+        /* 用translate，移动到正中心 */
+        transform: translate(-50%,-50%);
+        
+    }
+
+    .hand {
+        background-color: black;
+        position: absolute;
+        left: 50%;
+        /* CSS3变形中重置元素的原点，位移translate()不受影响 */
+        /* 原点在底部中心 */
+        /* transform-origin: 0.3rem 100%; */
+    }
+    /* 注意确保transform的设置 中心点 旋转点 在中心 */
+    .second-hand {
+        width: 0.2rem;
+        height: 13rem;
+        top: 2rem;
+        transform: translate(-50%,0%) rotate(0deg);
+        transform-origin: 0.1rem 100%;
+    }
+    
+    .min-hand {
+        width: 0.6rem;
+        height: 12rem;
+        top: 3rem;
+        transform: translate(-50%,0%) rotate(0deg);
+        transform-origin: 0.3rem 100%;
+    }
+
+    .hour-hand {
+        width: 1.4rem;
+        height: 9rem;
+        top: 6rem;
+        transform: translate(-50%,0%) rotate(0deg);
+        transform-origin: 0.7rem 100%;
+    }
+
+</style>
+
+<script>
+    const secondHand = document.querySelector('.second-hand');
+    const minHand = document.querySelector('.min-hand');
+    const hourHand = document.querySelector('.hour-hand');
+
+    function setDate() {
+        const now = new Date();
+
+        const seconds = now.getSeconds();
+        const mins = now.getMinutes();
+        const hours = now.getHours();
+
+        const secondsDegrees = ((seconds / 60) * 360);
+        const minsDegrees = ((mins /60) * 360) + ((seconds / 60) * 6);
+        const hoursDegrees = ((hours /12) *360) + ((mins / 60) * 30);
+
+        secondHand.style.transform = `translate(-50%,0%) rotate(${secondsDegrees}deg)`;
+        minHand.style.transform = `translate(-50%,0%) rotate(${minsDegrees}deg)`;
+        hourHand.style.transform = `translate(-50%,0%) rotate(${hoursDegrees}deg)`;
+    }
+
+    setDate(); //初始画面
+
+    // setInterval(setDate, 1000);//设定间隔 持续执行
+
+    //setTimeout(timeoutHandler, 1000); //设定延时  执行一次
+
+    function timeoutHandler() {
+        setDate();
+        setTimeout(timeoutHandler, 1000);
+    }
+
+    window.requestAnimationFrame(animationHandler);//执行一帧动画渲染（自身根据硬件条件，改变刷新帧率）
+
+    function animationHandler() {
+        setDate();
+        window.requestAnimationFrame(animationHandler);
+    }
+
+</script>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<!-- 问： 每个网页的头像怎么添加的 如GitHub的就是在head里放的这个？原理不清，待处理
+		我是看的这个链接添加的logo图标https://segmentfault.com/a/1190000007952589
+	-->
+	<link rel="icon" type="image/x-icon" class="js-site-favicon" href="https://github.githubassets.com/favicon.ico">
+	<title>img标签创建图片</title>
+</head>
+<body>
+	<p>
+		首先&lt;img&gt;是没有闭合标签的，它是empty元素，他有几个重要属性：
+	</p>
+	<ul>
+		<li>src属性（source）是必须的，它指出要嵌入图片的路径</li>
+		<li>alt属性（alternative）虽不是强制，但作为必须最好；作为无障碍访问，屏幕阅读器会读出alt的属性值，即描述图片的文字；或者图片加载错误，alt属性值就会替代图片显示</li>
+		<li>width和height属性，即可以设置width=&quot;400&quot;和height=&quot;300&quot;这是非必要，样式最好还是交给CSS解决</li>
+	</ul>
+	<p>
+		下面我就放了一个图片,GitHub上F12源码里找的我头像的链接作为src，由于GitHub服务器在国外，图片容易加载失败，这个时候正好能体现alt属性的时候
+	</p>
+	<a href="https://github.com/nshj" target="_blank">
+		<img src="../image/GitHubCool.jpg"
+			 alt="GitHub图标">
+	</a>
+	<p>
+		这个页面里我还用到了unordered list（无序列表），正如上面显示的那样
+	</p>
+	<p>
+		日常点击图片会跳转，就是把img元素嵌套进a(anchor)元素中，<a href="./00-a标签创建链接.html" target="_blank">上一节a标签的练习demo</a>
+		<br>现在你可以点击图标去看看我的GitHub首页吧
+	</p>
+</body>
+</html>
