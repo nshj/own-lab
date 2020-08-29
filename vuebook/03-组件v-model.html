@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <div>
+      <input type="text" v-model="message">
+      {{ message }}
+    </div>  
+    <div>
+      <!-- v-model 等价写法 -->
+      <input type="text" :value="model" @input="model = $event.target.value">
+      {{ model }}
+    </div>
+    <cpn1 :msg="model" @childinput="model=$event"></cpn1>
+  </div>
+
+  <template id="cpn">
+    <div>
+      <p>-----------组件-----------</p>
+      <input type="text" v-model="message">
+      {{ message }}
+      <div>
+        <p>-----------父组件input传子组件-----------</p>
+        {{ promsg }}
+      </div>
+      <div>
+        <p>-----------子组件input传父组件-----------</p>
+        <input type="text" :value="msg" @input="$emit('childinput',$event.target.value)">
+      </div>
+  </div>
+  </template>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: 'Hello Vue!',
+        model: 'v-model实现原理'
+      },
+      components: {
+        cpn1 : {
+          template: '#cpn',
+          data() {
+            return {
+              message: '子组件',
+              promsg: this.msg
+            }
+          },
+          props: {
+            msg : String
+          }
+        }
+      }
+    })
+  </script>
+</body>
+</html>
