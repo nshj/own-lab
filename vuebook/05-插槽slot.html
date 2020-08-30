@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    {{ message }}
+    <cpn1></cpn1>
+    <p>-------------------------------------------</p>
+    <cpn1>
+      <p>替换slot里的内容</p>
+      <p>不论几个标签，默认都会替换里面的</p>
+    </cpn1>
+    <p>-------------------------------------------</p>
+    <cpn1>
+      <template v-slot:username="ming" >
+        <p>&lt;slot&gt;元素有一个特殊的 attribute：name。这个 attribute 可以用来定义额外的插槽</p>
+        <p>在向具名插槽提供内容的时候,在一个 &lt;template&gt;元素上使用 v-slot 指令，并以 v-slot 的参数的形式提供其名称</p>
+        <p>{{ ming.user.lastname}}</p>
+      </template>
+    </cpn1>
+  </div>
+  <template id="cpn">
+    <div>
+      <p>∨∨∨∨∨∨这是组件slot的应用∨∨∨∨∨∨</p>
+      <slot>
+        <p>我是未具名slot里默认的内容</p>
+      </slot>
+      <slot name="username" v-bind:user="name">
+        <p>我是具名slot里默认的内容{{ name.firstname}}</p>
+      </slot>
+      <p>∧∧∧∧∧∧这是组件slot的应用∧∧∧∧∧∧</p>
+    </div>
+  </template>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: 'Hello Vue!'
+      },
+      components: {
+        cpn1: {
+          template: '#cpn',
+          data() {
+            return {
+              name: {
+                firstname: 'rock',
+                lastname: 'jin'}
+            }
+          }
+        }
+      }
+    })
+  </script>
+</body>
+</html>

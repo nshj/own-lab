@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 父子组件的访问方式： $children 是一个数组类型 包含所有子组件对象 -->
+  <!-- 父子组件的访问方式： $refs 首先通过ref给某一个子组件绑定一个特定的ID
+        通过this.$refs.ID就可以访问到该组件-->
+  
+        <!-- 子组件中直接访问父组件，可以通过$parent ，不建议使用，耦合度太高-->
+
+  <div id="app">
+    <p>点击按钮，父组件message变为子组件里的数据===>  {{ message }} </p>
+    <button @click="showchild">$children父访问子组件1</button>
+    <p>点击按钮，父组件message变为子组件里的数据===> {{ message }} </p>
+    <button @click="showrefschild">$refs父访问子组件2</button>
+    <cpn1></cpn1>
+    <cpn2 ref="child2"></cpn2>
+  </div>
+
+  <template id="cpn1">
+    <div>
+      <div><p>子组件1的data的msg为:{{ cpnmsg }}</p></div>
+    </div>
+  </template><template id="cpn2">
+    <div>
+      <div><p>组件2的data的msg为:{{ cpnmsg }}</p></div>
+    </div>
+  </template>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: 'Hello Vue!'
+      },
+      methods: {
+        showchild() {
+          this.message = this.$children[0].cpnmsg;
+        },
+        showrefschild() {
+          this.message = this.$refs.child2.cpnmsg;
+        }
+      },
+      components: {
+        cpn1: {
+          template: '#cpn1',
+          data() {
+            return {
+              cpnmsg: '我是组件1的cpnmsg'
+            }
+          }
+        },
+        cpn2: {
+          template: '#cpn2',
+          data() {
+            return {
+              cpnmsg: '我是组件2cpnmsg'
+            }
+          }
+        }
+      }
+    })
+  </script>
+</body>
+</html>
