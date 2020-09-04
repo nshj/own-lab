@@ -57,7 +57,7 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
+/******/ 	__webpack_require__.p = "dist/";
 /******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(__webpack_require__.s = 0);
@@ -67,9 +67,12 @@
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
+"use strict";
+
+
 // CommonJS模块规范
-const math = __webpack_require__(1)
-const info = __webpack_require__(2)
+var math = __webpack_require__(1);
+var info = __webpack_require__(2);
 // ES6模块
 // import  * as math from './mathUtils.js';
 
@@ -81,12 +84,14 @@ console.log(info.name);
 console.log(info.age);
 
 // 引用css文件
-__webpack_require__(3)
-
+__webpack_require__(3);
 
 /***/ }),
 /* 1 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
 
 function add(num1, num2) {
   return num1 + num2;
@@ -98,21 +103,24 @@ function mul(num1, num2) {
 
 // CommonJS模块规范
 module.exports = {
-  add,
-  mul
-}
-// ES6模块导出
-// export {add, mul};
+  add: add,
+  mul: mul
+  // ES6模块导出
+  // export {add, mul};
 
+};
 
 /***/ }),
 /* 2 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-const info = {
+"use strict";
+
+
+var info = {
   name: 'Rock',
-  age: 18,
-}
+  age: 18
+};
 
 module.exports = info;
 
@@ -135,7 +143,7 @@ var options = {"hmr":true}
 options.transform = transform
 options.insertInto = undefined;
 
-var update = __webpack_require__(6)(content, options);
+var update = __webpack_require__(8)(content, options);
 
 if(content.locals) module.exports = content.locals;
 
@@ -171,8 +179,12 @@ if(false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(5)(false);
+// Imports
+var urlEscape = __webpack_require__(6);
+var ___CSS_LOADER_URL___0___ = urlEscape(__webpack_require__(7));
+
 // Module
-exports.push([module.i, "body {\n  background-color: red;\n}", ""]);
+exports.push([module.i, "body {\n  /* background-color: red; */\n  /* 小于8kb */\n  /* background: url(../img/flower.jpeg); */\n  /* 大于8kb */\n  background: url(" + ___CSS_LOADER_URL___0___ + ");\n}", ""]);
 
 
 
@@ -271,6 +283,38 @@ function toComment(sourceMap) {
 /* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
+"use strict";
+
+
+module.exports = function escape(url) {
+  if (typeof url !== 'string') {
+    return url;
+  } // If url is already wrapped in quotes, remove them
+
+
+  if (/^['"].*['"]$/.test(url)) {
+    url = url.slice(1, -1);
+  } // Should url be wrapped?
+  // See https://drafts.csswg.org/css-values-3/#urls
+
+
+  if (/["'() \t\n]/.test(url)) {
+    return '"' + url.replace(/"/g, '\\"').replace(/\n/g, '\\n') + '"';
+  }
+
+  return url;
+};
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "img/flowerL.478d8269.jpeg";
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
 /*
 	MIT License http://www.opensource.org/licenses/mit-license.php
 	Author Tobias Koppers @sokra
@@ -337,7 +381,7 @@ var singleton = null;
 var	singletonCounter = 0;
 var	stylesInsertedAtTop = [];
 
-var	fixUrls = __webpack_require__(7);
+var	fixUrls = __webpack_require__(9);
 
 module.exports = function(list, options) {
 	if (typeof DEBUG !== "undefined" && DEBUG) {
@@ -674,7 +718,7 @@ function updateLink (link, options, obj) {
 
 
 /***/ }),
-/* 7 */
+/* 9 */
 /***/ (function(module, exports) {
 
 
