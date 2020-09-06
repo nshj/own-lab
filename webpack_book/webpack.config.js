@@ -1,4 +1,6 @@
 const path = require('path')
+const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   entry: './src/main.js',
@@ -7,7 +9,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
     // 临时,因为index.html目前放在src文件夹中,最终还是会放在dist中
-    publicPath: 'dist/'
+    // publicPath: 'dist/'
   },
   module: {
     rules: [
@@ -48,7 +50,26 @@ module.exports = {
             presets: ['es2015']
           }
         }
+      },
+      // 配置Vue
+      {
+        test: /\.vue$/,
+        use: {
+          loader: 'vue-loader',
+        }
       }
     ]
-  }
+  },
+  resolve: {
+    // alias别名，指定vue的可以编译带template的runtime-compiler
+    alias: {
+        'vue$': 'vue/dist/vue.esm.js' //内部为正则表达式  vue结尾的
+    }
+  },
+  plugins: [
+    new webpack.BannerPlugin('webpack自带的插件，为打包的文件添加版权声明'),
+    new HtmlWebpackPlugin( {
+      template: 'index.html'
+    })
+  ]
 }
